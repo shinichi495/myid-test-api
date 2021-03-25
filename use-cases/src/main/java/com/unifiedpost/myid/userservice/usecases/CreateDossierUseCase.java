@@ -11,7 +11,7 @@ public class CreateDossierUseCase {
   public CreateDossierUseCase(SignicatAdapter signicatAdapter) {
     this.signicatAdapter = signicatAdapter;
   }
-
+  //tesing change
   public Dossier execute(User user) {
     if (user == null) {
       return signicatAdapter.createDossier();
