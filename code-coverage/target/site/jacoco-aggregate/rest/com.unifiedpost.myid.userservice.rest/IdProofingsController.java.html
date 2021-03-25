@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>IdProofingsController.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">code-coverage</a> &gt; <a href="../index.html" class="el_bundle">rest</a> &gt; <a href="index.source.html" class="el_package">com.unifiedpost.myid.userservice.rest</a> &gt; <span class="el_source">IdProofingsController.java</span></div><h1>IdProofingsController.java</h1><pre class="source lang-java linenums">package com.unifiedpost.myid.userservice.rest;
+
+import com.unifiedpost.myid.userservice.entities.Dossier;
+import com.unifiedpost.myid.userservice.entities.Process;
+import com.unifiedpost.myid.userservice.entities.ProcessRequest;
+import com.unifiedpost.myid.userservice.entities.User;
+import com.unifiedpost.myid.userservice.rest.dto.request.IdProofingRequestDto;
+import com.unifiedpost.myid.userservice.rest.dto.response.IdProofingResponseDto;
+import com.unifiedpost.myid.userservice.rest.mapper.IdProofingResponseMapper;
+import com.unifiedpost.myid.userservice.rest.mapper.ProcessRequestMapper;
+import com.unifiedpost.myid.userservice.usecases.CreateDossierUseCase;
+import com.unifiedpost.myid.userservice.usecases.CreateProcessUseCase;
+import com.unifiedpost.myid.userservice.usecases.adapter.UserAdapter;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
+import javax.validation.Valid;
+
+@Tag(name = &quot;IdProofing&quot;, description = &quot;A Dossier goes with processes are created to hold end-user identify data&quot;)
+@RestController
+<span class="nc" id="L32">public class IdProofingsController {</span>
+
+  @Autowired
+  private CreateDossierUseCase createDossierUseCase;
+  @Autowired
+  private CreateProcessUseCase createProcessUseCase;
+  @Autowired
+  private UserAdapter userAdapter;
+
+  @Operation(summary = &quot;Create IdProofing&quot;,
+      description = &quot;Create a new dossier for each user to perform identity verification for that user and create a new process&quot;
+  )
+  @ApiResponses(value = {
+      @ApiResponse(
+          responseCode = &quot;201&quot;,
+          description = &quot;Create Id proofing successfully.&quot;,
+          content = @Content(
+              schema = @Schema(implementation = IdProofingResponseDto.class))),
+      @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Validation failed&quot;, content = @Content(schema = @Schema(hidden = true))),
+      @ApiResponse(responseCode = &quot;500&quot;, description = &quot;Couldn't create Id proofing&quot;,
+          content = @Content(schema = @Schema(hidden = true)))
+  })
+  @PostMapping(value = &quot;/idproofings&quot;)
+  public ResponseEntity&lt;?&gt; createIdProofing(@Valid @RequestBody IdProofingRequestDto idProofingRequestDto) {
+<span class="nc" id="L56">    ProcessRequest processRequest = ProcessRequestMapper.convert(idProofingRequestDto);</span>
+<span class="nc" id="L57">    User user = userAdapter.findByEmail(idProofingRequestDto.getEmail());</span>
+<span class="nc" id="L58">    Dossier dossier = createDossierUseCase.execute(user);</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">    if (dossier == null) {</span>
+<span class="nc" id="L60">      throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, &quot;Couldn't create Id proofing&quot;);</span>
+    }
+<span class="nc" id="L62">    Process process = createProcessUseCase.execute(dossier.getDossierId(), processRequest);</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">    if (process == null) {</span>
+<span class="nc" id="L64">      throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, &quot;Couldn't create Id proofing&quot;);</span>
+    }
+<span class="nc bnc" id="L66" title="All 2 branches missed.">    if (user == null) {</span>
+<span class="nc" id="L67">      user = new User();</span>
+<span class="nc" id="L68">      user.setDossierId(dossier.getDossierId());</span>
+<span class="nc" id="L69">      user.setPhoneNumber(idProofingRequestDto.getPhoneNumber());</span>
+<span class="nc" id="L70">      user.setEmail(idProofingRequestDto.getEmail());</span>
+<span class="nc" id="L71">      userAdapter.save(user);</span>
+    }
+<span class="nc" id="L73">    return new ResponseEntity&lt;&gt;(IdProofingResponseMapper.toDto(dossier, process), HttpStatus.CREATED);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

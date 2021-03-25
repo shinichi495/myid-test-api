@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>RestCallerImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">code-coverage</a> &gt; <a href="../index.html" class="el_bundle">http</a> &gt; <a href="index.source.html" class="el_package">com.unifiedpost.myid.userservice.http.rest</a> &gt; <span class="el_source">RestCallerImpl.java</span></div><h1>RestCallerImpl.java</h1><pre class="source lang-java linenums">package com.unifiedpost.myid.userservice.http.rest;
+
+import com.unifiedpost.myid.userservice.http.SignicatInterceptor;
+import java.util.Collections;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+@Lazy
+<span class="nc" id="L17">public class RestCallerImpl&lt;T, B&gt; implements RestCaller {</span>
+
+  @Autowired
+  private SignicatInterceptor signicatInterceptor;
+
+  @Autowired
+  private RestTemplate restTemplate;
+
+  /**
+   * Call for an operation
+   *
+   * @param url           : url to access 3rd party
+   * @param method        : HTTP method to call (GET, POST, PUT, ...)
+   * @param uriVariables: optional request parameters
+   * @param body:         request body
+   * @param responseType
+   * @return
+   */
+
+
+  @Override
+  public &lt;T, B&gt; ResponseEntity&lt;T&gt; call(String url, HttpMethod method, B body, Class&lt;T&gt; responseType, Object... uriVariables) {
+<span class="nc" id="L39">    HttpHeaders headers = new HttpHeaders();</span>
+<span class="nc" id="L40">    headers.set(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);</span>
+
+<span class="nc" id="L42">    restTemplate.setInterceptors(Collections.singletonList(signicatInterceptor));</span>
+<span class="nc" id="L43">    return restTemplate.exchange(url, method, new HttpEntity&lt;&gt;(body, headers), responseType,</span>
+        uriVariables);
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

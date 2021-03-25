@@ -1,0 +1,4 @@
+com/unifiedpost/myid/userservice/usecase/adapter/SignicatAdapter.class
+com/unifiedpost/myid/usecase/CreateProcessUseCase.class
+com/unifiedpost/myid/usecase/CreateDossierUseCase.class
+com/unifiedpost/myid/usecase/CreateIdProofingUseCase.class

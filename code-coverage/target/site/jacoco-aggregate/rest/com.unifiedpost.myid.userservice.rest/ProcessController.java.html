@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ProcessController.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">code-coverage</a> &gt; <a href="../index.html" class="el_bundle">rest</a> &gt; <a href="index.source.html" class="el_package">com.unifiedpost.myid.userservice.rest</a> &gt; <span class="el_source">ProcessController.java</span></div><h1>ProcessController.java</h1><pre class="source lang-java linenums">package com.unifiedpost.myid.userservice.rest;
+
+import com.unifiedpost.myid.userservice.entities.FacetecEnrollment;
+import com.unifiedpost.myid.userservice.entities.Process;
+import com.unifiedpost.myid.userservice.entities.ProcessRequest;
+import com.unifiedpost.myid.userservice.rest.dto.request.FacetecEnrollmentRequestDto;
+import com.unifiedpost.myid.userservice.rest.dto.request.ProcessRequestDto;
+import com.unifiedpost.myid.userservice.rest.dto.response.*;
+import com.unifiedpost.myid.userservice.rest.mapper.FactecEnrollmentMapper;
+import com.unifiedpost.myid.userservice.rest.mapper.ProcessMapper;
+import com.unifiedpost.myid.userservice.rest.mapper.ProcessRequestMapper;
+import com.unifiedpost.myid.userservice.usecases.CreateProcessUseCase;
+import com.unifiedpost.myid.userservice.usecases.GetProcessUseCase;
+import com.unifiedpost.myid.userservice.usecases.StartVerificationUseCase;
+import com.unifiedpost.myid.userservice.usecases.adapter.UserAdapter;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+import javax.validation.Valid;
+
+@Tag(name = &quot;Processes&quot;, description = &quot;A process is an object that contains end-user identity data as well as identity verification result data obtained from the provider that is used to verify the information in the process&quot;)
+@RestController
+<span class="nc" id="L33">public class ProcessController {</span>
+
+  @Autowired
+  private GetProcessUseCase getProcessUseCase;
+
+  @Autowired
+  private CreateProcessUseCase createProcessUseCase;
+
+  @Autowired
+  private StartVerificationUseCase startVerificationUseCase;
+
+  @Autowired
+  private UserAdapter userAdapter;
+
+  @Operation(summary = &quot;Create Process&quot;,
+      description = &quot;Initializes a new identity process in the dossier, using a given provider.&quot;,
+      parameters = {@Parameter(in = ParameterIn.PATH, name = &quot;dossierId&quot;, description = &quot;The ID of the dossier where the process should be created. This is obtained from the \&quot;IdProofing\&quot; response body.&quot;, example = &quot;49296926-7b41-4a74-9cf6-50d65f675b5f&quot;)}
+  )
+  @ApiResponses(value = {
+      @ApiResponse(responseCode = &quot;200&quot;, description = &quot;The process has been successfully initialized in the given dossier.&quot;,
+          content = @Content(schema = @Schema(
+              oneOf = {ProcessInitializationDto.class, FacetecInitializationDto.class}))),
+      @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Validation failed&quot;, content = @Content(schema = @Schema(hidden = true))),
+      @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Dossier not found.&quot;, content = @Content(schema = @Schema(hidden = true))),
+      @ApiResponse(responseCode = &quot;500&quot;, description = &quot;Internal Server Error&quot;, content = @Content(schema = @Schema(hidden = true)))})
+  @PostMapping(&quot;/dossiers/{dossierId}/processes&quot;)
+  public ResponseEntity&lt;ProcessInitializationDto&gt; createProcess(@PathVariable String dossierId, @Valid @RequestBody ProcessRequestDto requestDto) {
+<span class="nc" id="L60">    ProcessRequest request = ProcessRequestMapper.toEntity(requestDto);</span>
+<span class="nc" id="L61">    Process process = createProcessUseCase.execute(dossierId, request);</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">    if (process == null) {</span>
+<span class="nc" id="L63">      throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,</span>
+          &quot;Cannot create process in dossier with given provider&quot;);
+    }
+<span class="nc" id="L66">    return new ResponseEntity&lt;&gt;(ProcessMapper.toInitializationDto(process), HttpStatus.OK);</span>
+  }
+
+  @Operation(summary = &quot;Get Process&quot;, description = &quot;Gets all the information about a process, such as the process status or information about the verification result.&quot;,
+      parameters = {@Parameter(in = ParameterIn.PATH, name = &quot;dossierId&quot;, description = &quot;The id of a dossier. This is obtained from the \&quot;IdProofing\&quot; response body.&quot;, example = &quot;49296926-7b41-4a74-9cf6-50d65f675b5f&quot;),
+          @Parameter(in = ParameterIn.PATH, name = &quot;processId&quot;, description = &quot;The id of a process. This is obtained from the \&quot;Create Process\&quot; response body.&quot;, example = &quot;339f82c8-4ca6-4331-9ec2-cc3a61885285&quot;)})
+  @ApiResponses(value = {
+      @ApiResponse(responseCode = &quot;200&quot;, description = &quot;The process information was successfully retrieved.&quot;, content = @Content(schema = @Schema(oneOf = {OnfidoDetailDto.class, ReadIdDetailDto.class, FacetecDetailDto.class}))),
+      @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Dossier not found. | Process ID: doesn't exist&quot;, content = @Content(schema = @Schema(hidden = true))),
+      @ApiResponse(responseCode = &quot;500&quot;, description = &quot;Fail to get process&quot;, content = @Content(schema = @Schema(hidden = true)))})
+  @GetMapping(value = &quot;/dossiers/{dossierId}/processes/{processId}&quot;)
+  public ResponseEntity&lt;ProcessDetailDto&gt; getProcess(@PathVariable String dossierId, @PathVariable String processId) {
+<span class="nc" id="L78">    Process process = getProcessUseCase.execute(dossierId, processId);</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">    if (process == null) {</span>
+<span class="nc" id="L80">      throw new ResponseStatusException(HttpStatus.NOT_FOUND,</span>
+          &quot;Process ID: &quot; + processId + &quot; doesn't exist&quot;);
+    }
+<span class="nc" id="L83">    return new ResponseEntity&lt;&gt;(ProcessMapper.toDetailDto(process), HttpStatus.OK);</span>
+  }
+
+  @Operation(summary = &quot;Start Verification&quot;,
+      description = &quot;This service requests is to perform a verification of the identity document that was uploaded, then return process after handling&quot;,
+      parameters = {@Parameter(in = ParameterIn.PATH, name = &quot;dossierId&quot;, description = &quot;This is obtained from the \&quot;IdProofing\&quot; response body.&quot;, example = &quot;49296926-7b41-4a74-9cf6-50d65f675b5f&quot;),
+          @Parameter(in = ParameterIn.PATH, name = &quot;processId&quot;, description = &quot;This is obtained from the \&quot;IdProofing\&quot; response body.&quot;, example = &quot;339f82c8-4ca6-4331-9ec2-cc3a61885285&quot;)})
+  @ApiResponses(value = {
+      @ApiResponse(responseCode = &quot;200&quot;,
+          description = &quot;The process with information has been successfully verified successfully.&quot;,
+          content = @Content(schema = @Schema(oneOf = {OnfidoDetailDto.class, ReadIdDetailDto.class}))),
+      @ApiResponse(responseCode = &quot;404&quot;, description = &quot;The dossier was not found. | The process was not found.&quot;, content = @Content(schema = @Schema(hidden = true))),
+      @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Verification already started.&quot;, content = @Content(schema = @Schema(hidden = true))),
+      @ApiResponse(responseCode = &quot;417&quot;, description = &quot;Verification failed. Data does not match.&quot;, content = @Content(schema = @Schema(hidden = true)))
+  })
+  @PostMapping(&quot;/dossiers/{dossierId}/processes/{processId}&quot;)
+  public ResponseEntity&lt;ProcessDetailDto&gt; startVerification(@PathVariable String dossierId, @PathVariable String processId, @Valid @RequestBody FacetecEnrollmentRequestDto requestDto) {
+<span class="nc" id="L100">    FacetecEnrollment request = FactecEnrollmentMapper.toEntity(requestDto);</span>
+<span class="nc" id="L101">    startVerificationUseCase.execute(dossierId, request);</span>
+<span class="nc" id="L102">    Process facetecProcess = getProcessUseCase.execute(dossierId, request.getProcessFacetecId());</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">    if (&quot;accepted&quot;.equalsIgnoreCase(facetecProcess.getStatus())) {</span>
+<span class="nc" id="L104">      return getProcess(dossierId, processId);</span>
+    } else {
+<span class="nc" id="L106">      throw new ResponseStatusException(HttpStatus.EXPECTATION_FAILED, &quot;Verification failed. Data does not match&quot;);</span>
+    }
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

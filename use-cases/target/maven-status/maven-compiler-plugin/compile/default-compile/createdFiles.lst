@@ -1,0 +1,6 @@
+com/unifiedpost/myid/userservice/usecases/StartVerificationUseCase.class
+com/unifiedpost/myid/userservice/usecases/adapter/SignicatAdapter.class
+com/unifiedpost/myid/userservice/usecases/CreateProcessUseCase.class
+com/unifiedpost/myid/userservice/usecases/adapter/UserAdapter.class
+com/unifiedpost/myid/userservice/usecases/CreateDossierUseCase.class
+com/unifiedpost/myid/userservice/usecases/GetProcessUseCase.class

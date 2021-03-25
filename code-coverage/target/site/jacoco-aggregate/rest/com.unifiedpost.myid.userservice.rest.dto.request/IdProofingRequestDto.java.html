@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>IdProofingRequestDto.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">code-coverage</a> &gt; <a href="../index.html" class="el_bundle">rest</a> &gt; <a href="index.source.html" class="el_package">com.unifiedpost.myid.userservice.rest.dto.request</a> &gt; <span class="el_source">IdProofingRequestDto.java</span></div><h1>IdProofingRequestDto.java</h1><pre class="source lang-java linenums">package com.unifiedpost.myid.userservice.rest.dto.request;
+
+import com.unifiedpost.myid.userservice.rest.dto.ProcessTypeDto;
+import com.unifiedpost.myid.userservice.rest.dto.ProviderDto;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+@Getter
+<span class="nc" id="L14">@Setter</span>
+<span class="nc" id="L15">public class IdProofingRequestDto {</span>
+
+  @Schema(description = &quot;The unique email to identify whose created dossier belong to&quot;, example = &quot;abc@mail.com&quot;)
+  @NotNull
+  @NotEmpty
+  @Email
+<span class="nc" id="L21">  private String email;</span>
+
+  @Schema
+  @NotNull
+  @Digits(integer = 15, fraction = 0, message = &quot;Must be digits and not be longer than 15 digits&quot;)
+<span class="nc" id="L26">  private String phoneNumber;</span>
+
+  @Schema(description = &quot;The provider used in the identity document verification.&quot;, example = &quot;onfido&quot;,
+      required = true)
+  @NotNull
+<span class="nc" id="L31">  private ProviderDto provider;</span>
+
+  @Schema(example = &quot;document&quot;, required = true)
+  @NotNull
+<span class="nc" id="L35">  private ProcessTypeDto processType;</span>
+
+  @Schema(
+      description = &quot;Parameters specific for using with each provider&quot;,
+      required = true)
+  @NotNull
+<span class="nc" id="L41">  private ProcessParameterDto processParameters;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,5 @@
+com/unifiedpost/myid/userservice/db/mapper/UserMapper.class
+com/unifiedpost/myid/userservice/db/Converter.class
+com/unifiedpost/myid/userservice/db/UserModel.class
+com/unifiedpost/myid/userservice/db/UserAdapterImpl.class
+com/unifiedpost/myid/userservice/db/UserRepository.class

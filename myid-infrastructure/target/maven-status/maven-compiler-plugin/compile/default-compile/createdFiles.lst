@@ -1,0 +1,17 @@
+com/unifiedpost/myid/onfindo/shared/consts/RestConsts.class
+com/unifiedpost/myid/Application.class
+com/unifiedpost/myid/onfindo/shared/RestConverter.class
+com/unifiedpost/myid/onfindo/shared/exception/OnfindoException.class
+com/unifiedpost/myid/onfindo/delivery/converters/OnfindoConverter.class
+com/unifiedpost/myid/onfindo/persistency/impl/OnfindoServiceImpl.class
+com/unifiedpost/myid/onfindo/shared/RepositoryConverter.class
+com/unifiedpost/myid/onfindo/shared/exception/NotFoundException.class
+com/unifiedpost/myid/onfindo/persistency/repository/OnfindoRepository.class
+com/unifiedpost/myid/onfindo/delivery/responses/OnfidoResponse.class
+com/unifiedpost/myid/onfindo/configuration/OnfindoConfiguration.class
+com/unifiedpost/myid/onfindo/delivery/OnfindoController.class
+com/unifiedpost/myid/onfindo/shared/exception/BadRequestException.class
+com/unifiedpost/myid/onfindo/delivery/impl/OnfindoControllerImpl.class
+com/unifiedpost/myid/onfindo/shared/consts/CommonConsts.class
+com/unifiedpost/myid/onfindo/delivery/rest/OnfidoRest.class
+com/unifiedpost/myid/onfindo/persistency/repository/OnfindoRepositoryImpl.class

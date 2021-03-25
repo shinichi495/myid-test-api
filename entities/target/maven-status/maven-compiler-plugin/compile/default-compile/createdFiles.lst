@@ -1,0 +1,14 @@
+com/unifiedpost/myid/userservice/entities/OnfidoProcess.class
+com/unifiedpost/myid/userservice/entities/FacetecProcess.class
+com/unifiedpost/myid/userservice/entities/ProcessType.class
+com/unifiedpost/myid/userservice/entities/FacetecMatching.class
+com/unifiedpost/myid/userservice/entities/Dossier.class
+com/unifiedpost/myid/userservice/entities/VerificationResult.class
+com/unifiedpost/myid/userservice/entities/Process.class
+com/unifiedpost/myid/userservice/entities/IdProofingRequest.class
+com/unifiedpost/myid/userservice/entities/ReadIdProcess.class
+com/unifiedpost/myid/userservice/entities/ProcessParameter.class
+com/unifiedpost/myid/userservice/entities/FacetecEnrollment.class
+com/unifiedpost/myid/userservice/entities/ProcessRequest.class
+com/unifiedpost/myid/userservice/entities/User.class
+com/unifiedpost/myid/userservice/entities/Provider.class

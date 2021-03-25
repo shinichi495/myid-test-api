@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>UserAdapterImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">code-coverage</a> &gt; <a href="../index.html" class="el_bundle">db</a> &gt; <a href="index.source.html" class="el_package">com.unifiedpost.myid.userservice.db</a> &gt; <span class="el_source">UserAdapterImpl.java</span></div><h1>UserAdapterImpl.java</h1><pre class="source lang-java linenums">package com.unifiedpost.myid.userservice.db;
+
+import com.unifiedpost.myid.userservice.db.mapper.UserMapper;
+import com.unifiedpost.myid.userservice.entities.User;
+import com.unifiedpost.myid.userservice.usecases.adapter.UserAdapter;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
+import java.util.Optional;
+<span class="nc" id="L10">@Slf4j</span>
+<span class="nc" id="L11">public class UserAdapterImpl implements UserAdapter {</span>
+
+  @Autowired
+  private UserRepository userRepository;
+
+  @Override
+  public User save(User user) {
+<span class="nc bnc" id="L18" title="All 2 branches missed.">    if (user == null) {</span>
+<span class="nc" id="L19">      log.info(&quot;user null&quot;);</span>
+<span class="nc" id="L20">      return null;</span>
+    }
+<span class="nc" id="L22">    UserModel model = UserMapper.toModel(user);</span>
+<span class="nc" id="L23">    log.info(&quot;Namph usermodel testing with dossier&quot; + model.getDossierId());</span>
+<span class="nc" id="L24">    model = userRepository.save(model);</span>
+<span class="nc" id="L25">    return UserMapper.toEntity(model);</span>
+  }
+
+  @Override
+  public User findByEmail(String email) {
+<span class="nc bnc" id="L30" title="All 2 branches missed.">    if (!StringUtils.hasText(email)) {</span>
+<span class="nc" id="L31">      return null;</span>
+    }
+<span class="nc" id="L33">    Optional&lt;UserModel&gt; userOptional = userRepository.findByEmail(email);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">    return userOptional.isPresent() ? UserMapper.toEntity(userOptional.get()) : null;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>FacetecInitializationDto.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">code-coverage</a> &gt; <a href="../index.html" class="el_bundle">rest</a> &gt; <a href="index.source.html" class="el_package">com.unifiedpost.myid.userservice.rest.dto.response</a> &gt; <span class="el_source">FacetecInitializationDto.java</span></div><h1>FacetecInitializationDto.java</h1><pre class="source lang-java linenums">package com.unifiedpost.myid.userservice.rest.dto.response;
+
+import com.unifiedpost.myid.userservice.rest.dto.ProviderDto;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+<span class="nc" id="L9">@Setter</span>
+@Schema(description = &quot;Process created with provider facetec&quot;)
+public class FacetecInitializationDto extends ProcessInitializationDto {
+
+  @Schema(description = &quot;&quot;, example = &quot;-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5PxZ3DLj+zP6T6HFgzzkM77LdzP3fojBoLasw7EfzvLMnJNUlyRb5m8e5QyyJxI+wRjsALHvFgLzGwxM8ehzDqqBZed+f4w33GgQXFZOS4AOvyPbALgCYoLehigLAbbCNTkeY5RDcmmSI/sbp+s6mAiAKKvCdIqe17bltZ/rfEoL3gPKEfLXeN549LTj3XBp0hvG4loQ6eC1E1tRzSkfGJD4GIVvR+j12gXAaftj3ahfYxioBH7F7HQxzmWkwDyn3bqU54eaiB7f0ftsPpWMceUaqkL2DZUvgN0efEJjnWy5y1/Gkq5GGWCROI9XG/SwXJ30BbVUehTbVcD70+ZF8QIDAQAB-----END PUBLIC KEY-----&quot;)
+<span class="nc" id="L14">  private String facetecEncryptionPublicKey;</span>
+  @Schema(example = &quot;dvFMSBMcyjjUB7dvR0lFWsOHoNiBsLDh&quot;)
+<span class="nc" id="L16">  private String facetecDeviceKeyIdentifier;</span>
+
+<span class="nc" id="L18">  public FacetecInitializationDto() {</span>
+<span class="nc" id="L19">    setProvider(ProviderDto.FACETEC);</span>
+<span class="nc" id="L20">  }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

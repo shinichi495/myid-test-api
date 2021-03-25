@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ProcessMapper.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">code-coverage</a> &gt; <a href="../index.html" class="el_bundle">http</a> &gt; <a href="index.source.html" class="el_package">com.unifiedpost.myid.userservice.http.mapper</a> &gt; <span class="el_source">ProcessMapper.java</span></div><h1>ProcessMapper.java</h1><pre class="source lang-java linenums">package com.unifiedpost.myid.userservice.http.mapper;
+
+import com.unifiedpost.myid.userservice.entities.Process;
+import com.unifiedpost.myid.userservice.entities.*;
+import com.unifiedpost.myid.userservice.http.dto.ProcessResponseDto;
+import com.unifiedpost.myid.userservice.http.dto.ProviderSpecificResponse;
+
+<span class="nc" id="L8">public class ProcessMapper {</span>
+
+  public static Process toEntity(ProcessResponseDto dto) {
+<span class="nc bnc" id="L11" title="All 2 branches missed.">    if (dto == null) {</span>
+<span class="nc" id="L12">      return null;</span>
+    }
+<span class="nc bnc" id="L14" title="All 4 branches missed.">    switch (dto.getProvider()) {</span>
+      case FACETEC: {
+<span class="nc" id="L16">        FacetecProcess faceTec = new FacetecProcess();</span>
+<span class="nc" id="L17">        Converter.convert(dto, faceTec);</span>
+<span class="nc" id="L18">        ProviderSpecificResponse specific = dto.getProviderSpecific();</span>
+<span class="nc bnc" id="L19" title="All 4 branches missed.">        if (specific != null &amp;&amp; specific.getMatching() != null) {</span>
+<span class="nc" id="L20">          FacetecMatching matching = new FacetecMatching();</span>
+<span class="nc" id="L21">          Converter.convert(specific.getMatching(), matching);</span>
+<span class="nc" id="L22">          faceTec.setMatching(matching);</span>
+        }
+<span class="nc" id="L24">        return faceTec;</span>
+      }
+      case ONFIDO: {
+<span class="nc" id="L27">        OnfidoProcess onfido = new OnfidoProcess();</span>
+<span class="nc" id="L28">        Converter.convert(dto, onfido);</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (dto.getFinalResult() != null) {</span>
+<span class="nc" id="L30">          User user = new User();</span>
+<span class="nc" id="L31">          Converter.convert(dto.getFinalResult(), user);</span>
+<span class="nc" id="L32">          onfido.setUser(user);</span>
+        }
+<span class="nc" id="L34">        return onfido;</span>
+      }
+      case READID: {
+<span class="nc" id="L37">        ReadIdProcess readId = new ReadIdProcess();</span>
+<span class="nc" id="L38">        Converter.convert(dto, readId);</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (dto.getFinalResult() != null) {</span>
+<span class="nc" id="L40">          User user = new User();</span>
+<span class="nc" id="L41">          Converter.convert(dto.getFinalResult(), user);</span>
+<span class="nc" id="L42">          readId.setUser(user);</span>
+        }
+<span class="nc" id="L44">        return readId;</span>
+      }
+      default:
+<span class="nc" id="L47">        return null;</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

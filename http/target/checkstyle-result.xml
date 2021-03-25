@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.40">
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/FacetecMatchingResponse.java">
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/VerifyRequestDto.java">
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/FacetecEnrollmentRequest.java">
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/ProcessParameterDto.java">
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/ProcessTypeDto.java">
+<error line="23" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/ProcessResponseDto.java">
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/VerificationResultDto.java">
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/AccessTokenDto.java">
+<error line="3" column="8" severity="warning" message="Unused import - com.fasterxml.jackson.annotation.JsonIgnoreProperties." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/DossierDto.java">
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/ProcessRequestDto.java">
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/ProviderSpecificResponse.java">
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/ProviderDto.java">
+<error line="22" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/FinalResultProcessDto.java">
+<error line="5" column="1" severity="warning" message="Wrong lexicographical order for &apos;java.time.LocalDate&apos; import. Should be before &apos;lombok.Setter&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="5" column="8" severity="warning" message="Unused import - java.time.LocalDate." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/mapper/ProcessRequestMapper.java">
+<error line="11" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="16" severity="warning" message="Line is longer than 100 characters (found 115)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="17" severity="warning" message="Line is longer than 100 characters (found 127)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/mapper/ProcessMapper.java">
+<error line="4" column="1" severity="warning" message="Wrong lexicographical order for &apos;com.unifiedpost.myid.userservice.entities.*&apos; import. Should be before &apos;com.unifiedpost.myid.userservice.entities.Process&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="4" column="49" severity="warning" message="Using the &apos;.*&apos; form of import should be avoided - com.unifiedpost.myid.userservice.entities.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="10" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/mapper/Converter.java">
+<error line="5" column="1" severity="warning" message="Wrong lexicographical order for &apos;java.lang.reflect.Field&apos; import. Should be before &apos;org.springframework.beans.BeanUtils&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="6" column="1" severity="warning" message="Wrong lexicographical order for &apos;java.time.LocalDate&apos; import. Should be before &apos;org.springframework.beans.BeanUtils&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="7" column="1" severity="warning" message="Wrong lexicographical order for &apos;java.time.LocalDateTime&apos; import. Should be before &apos;org.springframework.beans.BeanUtils&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" column="1" severity="warning" message="Wrong lexicographical order for &apos;java.util.*&apos; import. Should be before &apos;org.springframework.beans.BeanUtils&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="8" column="17" severity="warning" message="Using the &apos;.*&apos; form of import should be avoided - java.util.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="9" column="1" severity="warning" message="Wrong lexicographical order for &apos;java.util.stream.Collectors&apos; import. Should be before &apos;org.springframework.beans.BeanUtils&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="11" severity="warning" message="First sentence of Javadoc is missing an ending period." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+<error line="23" severity="warning" message="Line is longer than 100 characters (found 138)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="23" column="17" severity="warning" message="&apos;static&apos; modifier out of order with the JLS suggestions." source="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck"/>
+<error line="25" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="39" severity="warning" message="Line is longer than 100 characters (found 125)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="65" severity="warning" message="Line is longer than 100 characters (found 104)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="68" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="71" severity="warning" message="Line is longer than 100 characters (found 107)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/mapper/DossierMapper.java">
+<error line="8" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/mapper/VerificationMapper.java">
+<error line="11" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="23" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/SignicatInterceptor.java">
+<error line="13" column="1" severity="warning" message="Wrong lexicographical order for &apos;java.io.IOException&apos; import. Should be before &apos;org.springframework.util.StringUtils&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="26" severity="warning" message="Line is longer than 100 characters (found 116)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/SignicatAdapterImpl.java">
+<error line="4" column="1" severity="warning" message="Wrong lexicographical order for &apos;com.unifiedpost.myid.userservice.entities.*&apos; import. Should be before &apos;com.unifiedpost.myid.userservice.entities.Process&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="4" column="49" severity="warning" message="Using the &apos;.*&apos; form of import should be avoided - com.unifiedpost.myid.userservice.entities.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="5" column="49" severity="warning" message="Using the &apos;.*&apos; form of import should be avoided - com.unifiedpost.myid.userservice.http.dto.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="32" severity="warning" message="Line is longer than 100 characters (found 107)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="47" severity="warning" message="Line is longer than 100 characters (found 102)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="49" severity="warning" message="Line is longer than 100 characters (found 101)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="61" severity="warning" message="Line is longer than 100 characters (found 120)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="77" severity="warning" message="Line is longer than 100 characters (found 132)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="79" severity="warning" message="Line is longer than 100 characters (found 101)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="85" severity="warning" message="Line is longer than 100 characters (found 101)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="91" severity="warning" message="Line is longer than 100 characters (found 135)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="92" severity="warning" message="Line is longer than 100 characters (found 114)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="93" severity="warning" message="Line is longer than 100 characters (found 116)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/TokenService.java">
+<error line="13" column="32" severity="warning" message="Using the &apos;.*&apos; form of import should be avoided - org.springframework.http.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="15" column="1" severity="warning" message="Wrong lexicographical order for &apos;lombok.extern.slf4j.Slf4j&apos; import. Should be before &apos;org.springframework.stereotype.Service&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="35" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="42" severity="warning" message="Line is longer than 100 characters (found 159)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/rest/RestCaller.java">
+</file>
+<file name="/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/rest/RestCallerImpl.java">
+<error line="30" severity="warning" message="Javadoc comment at column 24 has parse error. Details: mismatched input &apos;:&apos; expecting &lt;EOF&gt; while parsing JAVADOC" source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTagContinuationIndentationCheck"/>
+<error line="30" column="6" severity="warning" message="Unused @param tag for &apos;uriVariables:&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="31" column="6" severity="warning" message="Unused @param tag for &apos;body:&apos;." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="37" column="3" severity="warning" message="&apos;METHOD_DEF&apos; has more than 1 empty lines before." source="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+<error line="38" severity="warning" message="Line is longer than 100 characters (found 126)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+</checkstyle>

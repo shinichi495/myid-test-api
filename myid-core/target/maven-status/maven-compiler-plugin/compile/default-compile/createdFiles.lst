@@ -1,0 +1,5 @@
+com/unifiedpost/myid/onfindo/usecase/GetTokenUsecaseImpl.class
+com/unifiedpost/myid/onfindo/ports/OnfindoRepositoryService.class
+com/unifiedpost/myid/shared/Selfvalidating.class
+com/unifiedpost/myid/onfindo/usecase/GetTokenUsecase.class
+com/unifiedpost/myid/onfindo/Onfindo.class

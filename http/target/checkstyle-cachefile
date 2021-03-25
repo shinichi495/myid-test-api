@@ -1,0 +1,14 @@
+#Thu Mar 25 11:58:17 ICT 2021
+configuration*?=2B811D0B5E8AE85E420018818234B670E6AC4C25
+/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/ProcessRequestDto.java=1614651210583
+/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/ProviderSpecificResponse.java=1614935442688
+/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/VerificationResultDto.java=1616609798924
+/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/DossierDto.java=1616609798923
+/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/ProcessResponseDto.java=1614913379625
+/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/FacetecMatchingResponse.java=1614935442687
+/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/ProcessParameterDto.java=1613967720197
+/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/FacetecEnrollmentRequest.java=1616609798923
+module-resource*?\:checkstyle-xpath-suppressions.xml=C2762F2C90D0D12611A21EBB43160415757BD7F0
+/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/rest/RestCaller.java=1616614362866
+module-resource*?\:checkstyle-suppressions.xml=BC0458FB21A31C3688307A97CFD248B74CC5F4BF
+/Users/NamPH16/myid-user-service/http/src/main/java/com/unifiedpost/myid/userservice/http/dto/VerifyRequestDto.java=1616609798924

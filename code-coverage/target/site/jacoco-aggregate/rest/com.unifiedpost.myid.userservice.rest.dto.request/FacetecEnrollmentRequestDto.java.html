@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>FacetecEnrollmentRequestDto.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">code-coverage</a> &gt; <a href="../index.html" class="el_bundle">rest</a> &gt; <a href="index.source.html" class="el_package">com.unifiedpost.myid.userservice.rest.dto.request</a> &gt; <span class="el_source">FacetecEnrollmentRequestDto.java</span></div><h1>FacetecEnrollmentRequestDto.java</h1><pre class="source lang-java linenums">package com.unifiedpost.myid.userservice.rest.dto.request;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+import javax.validation.constraints.NotNull;
+
+@Getter
+<span class="nc" id="L9">@Setter</span>
+@Schema(description = &quot;Liveness information object. Used only when using the Facetec provider&quot;)
+<span class="nc" id="L11">public class FacetecEnrollmentRequestDto {</span>
+
+  @Schema(description = &quot;The process Id of facetec process used for verification&quot;)
+  @NotNull
+<span class="nc" id="L15">  private String processFacetecId;</span>
+  @Schema(description = &quot;The 3D FaceScan is an encrypted byte blob that contains reverse engineered 3D data from 100+ video frames captured during ~2 second User Selfie. FaceScans are always encrypted and are not human viewable&quot;,
+      example = &quot;&quot;)
+  @NotNull
+<span class="nc" id="L19">  private String faceScan;</span>
+  @Schema(description = &quot;Picture taken for the end-user to audit&quot;)
+  @NotNull
+<span class="nc" id="L22">  private String auditTrailImage;</span>
+  @Schema(description = &quot;Low quality picture taken to the end user for audit&quot;)
+  @NotNull
+<span class="nc" id="L25">  private String lowQualityAuditTrailImage;</span>
+  @NotNull
+<span class="nc" id="L27">  private String userAgent;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
