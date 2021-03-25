@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                tool name: 'Maven3.0', type: 'maven'
+                tool name: 'Maven3.6.3', type: 'maven'
                 sh 'mvn clean install'
             }
         }
