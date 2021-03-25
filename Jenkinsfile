@@ -1,14 +1,17 @@
 pipeline {
-    agent any
-
-    triggers {
-        pollSCM '* * * * *'
+    agent {
+       node {
+          label 'SLAVE01'
+       }
+    }
+    
+    tools {
+            maven 'maven3'
     }
     stages {
         stage('Build') {
             steps {
-                tool name: 'Maven3.6.3', type: 'maven'
-                sh 'mvn clean install'
+                sh 'mvn install -Dmaven.test.skip=true'
             }
         }
     }
