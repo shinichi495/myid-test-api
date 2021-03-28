@@ -1,7 +1,7 @@
-#Thu Mar 25 11:58:18 ICT 2021
-configuration*?=E7328B7E94BC3468B1593BEED44512A4002332AA
+#Sun Mar 28 23:06:11 ICT 2021
+configuration*?=12AD3887E6E2E0E75BCC7AA21381FB26E6846B7C
+/Users/NamPH16/Projects/myid-server-test-api/configuration/src/test/resources/application.properties=1614651210233
 module-resource*?\:checkstyle-xpath-suppressions.xml=C2762F2C90D0D12611A21EBB43160415757BD7F0
-/Users/NamPH16/myid-user-service/configuration/src/main/resources/application.properties=1616645982274
 module-resource*?\:checkstyle-suppressions.xml=BC0458FB21A31C3688307A97CFD248B74CC5F4BF
-/Users/NamPH16/myid-user-service/configuration/src/test/resources/application.properties=1614651210233
-/Users/NamPH16/myid-user-service/configuration/src/main/java/com/unifiedpost/myid/userservice/Application.java=1614842266495
+/Users/NamPH16/Projects/myid-server-test-api/configuration/src/main/java/com/unifiedpost/myid/userservice/Application.java=1614842266495
+/Users/NamPH16/Projects/myid-server-test-api/configuration/src/main/resources/application.properties=1616645982274

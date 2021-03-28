@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.40">
-<file name="/Users/NamPH16/myid-user-service/configuration/src/main/java/com/unifiedpost/myid/userservice/Application.java">
+<file name="/Users/NamPH16/Projects/myid-server-test-api/configuration/src/main/java/com/unifiedpost/myid/userservice/Application.java">
 </file>
-<file name="/Users/NamPH16/myid-user-service/configuration/src/main/java/com/unifiedpost/myid/userservice/AppConfiguration.java">
+<file name="/Users/NamPH16/Projects/myid-server-test-api/configuration/src/main/java/com/unifiedpost/myid/userservice/AppConfiguration.java">
 <error line="5" column="49" severity="warning" message="Using the &apos;.*&apos; form of import should be avoided - com.unifiedpost.myid.userservice.usecases.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 </file>
-<file name="/Users/NamPH16/myid-user-service/configuration/src/main/resources/application.properties">
+<file name="/Users/NamPH16/Projects/myid-server-test-api/configuration/src/main/resources/application.properties">
 </file>
-<file name="/Users/NamPH16/myid-user-service/configuration/src/test/resources/application.properties">
+<file name="/Users/NamPH16/Projects/myid-server-test-api/configuration/src/test/resources/application.properties">
 </file>
 </checkstyle>

@@ -85,33 +85,37 @@
         <groupId>org.jacoco</groupId>
         <version>0.8.6</version>
       </plugin>
+
+<!--      <plugin>-->
+<!--        <groupId>com.spotify</groupId>-->
+<!--        <artifactId>dockerfile-maven-plugin</artifactId>-->
+<!--        <version>1.4.13</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>tag-latest</id>-->
+<!--            <goals>-->
+<!--              <goal>build</goal>-->
+<!--              <goal>tag</goal>-->
+<!--              <goal>push</goal>-->
+<!--            </goals>-->
+<!--            <configuration>-->
+<!--              <tag>latest</tag>-->
+<!--            </configuration>-->
+<!--          </execution>-->
+<!--          <execution>-->
+<!--            <id>tag-version</id>-->
+<!--            <goals>-->
+<!--              <goal>build</goal>-->
+<!--              <goal>tag</goal>-->
+<!--              <goal>push</goal>-->
+<!--            </goals>-->
+<!--            <configuration>-->
+<!--              <tag>1.0.0</tag>-->
+<!--            </configuration>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
     </plugins>
   </build>
 
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>com.github.spotbugs</groupId>
-        <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>4.2.0</version>
-        <configuration>
-          <effort>Max</effort>
-          <threshold>Low</threshold>
-          <failOnError>true</failOnError>
-          <plugins>
-            <plugin>
-              <groupId>com.mebigfatguy.fb-contrib</groupId>
-              <artifactId>fb-contrib</artifactId>
-              <version>7.4.7</version>
-            </plugin>
-            <plugin>
-              <groupId>com.h3xstream.findsecbugs</groupId>
-              <artifactId>findsecbugs-plugin</artifactId>
-              <version>1.11.0</version>
-            </plugin>
-          </plugins>
-        </configuration>
-      </plugin>
-    </plugins>
-  </reporting>
 </project>

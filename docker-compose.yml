@@ -2,7 +2,7 @@ version: '3.1'
 services:
   app:
     container_name: myid-user-server
-    image: myid-user-server
+    image: shinichi495/myid-user-server
     build: ./
     ports:
       - "9090:9090"
@@ -16,3 +16,7 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
       - POSTGRES_DB=myid-user-service-db
+
+  service1:
+    build: ./
+    image: shinichi495/myid-user-server
