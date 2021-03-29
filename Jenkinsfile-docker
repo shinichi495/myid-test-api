@@ -14,7 +14,6 @@ pipeline {
         stage('Docker push Image') {
             steps {
                 sh 'docker login --username=shinichi495 --password=vukhanhlinh@123'
-                sh 'docker compose push'
             }
         }
 
