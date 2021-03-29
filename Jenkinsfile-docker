@@ -11,5 +11,12 @@ pipeline {
             }
         }
 
+        stage('Push Docker image') {
+            steps {
+                sh 'docker login --username=shinichi495 --password=vukhanhlinh@123'
+                sh 'docker compose push'
+            }
+        }
+
     }
 }
