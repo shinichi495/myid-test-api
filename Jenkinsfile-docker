@@ -4,21 +4,11 @@ pipeline {
     tools {
             maven 'maven3'
     }
+
     stages {
         stage('Build') {
             steps {
               sh 'mvn install -Dmaven.test.skip=true'
-            }
-        stage('Build docker image') {
-            steps {
-              sh 'docker-compose up --build'
-            }
-        }
-        stage('Push Docker image') {
-            steps {
-              sh 'docker login --username=shinichi495 --password=vukhanhlinh@123'
-              sh 'docker-compose push'
-            }
         }
     }
 }

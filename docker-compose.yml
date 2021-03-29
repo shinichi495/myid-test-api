@@ -17,6 +17,4 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=myid-user-service-db
 
-  service1:
-    build: ./
-    image: shinichi495/myid-user-server
+
