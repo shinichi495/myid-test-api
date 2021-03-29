@@ -1,12 +1,8 @@
 pipeline {
-    agent {
-      docker {
-                  image "maven:3.6.3-jdk-11-slim"
-              }
-    }
+    agent any
 
     tools {
-            maven 'maven3'
+        maven 'maven3'
     }
     stages {
         stage('Build') {
@@ -15,7 +11,7 @@ pipeline {
             }
         }
 
-        stage('Push Docker image') {
+        stage('Docker push Image') {
             steps {
                 sh 'docker login --username=shinichi495 --password=vukhanhlinh@123'
                 sh 'docker compose push'
