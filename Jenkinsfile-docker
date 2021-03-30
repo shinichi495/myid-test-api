@@ -5,10 +5,16 @@ pipeline {
         maven 'maven3'
     }
     stages {
+        stage('Build') {
+            steps {
+                bat 'mvn clean install'
+            }
+        }
+
         stage('Docker push Image') {
             steps {
-                sh 'docker login --username=shinichi495 --password=vukhanhlinh@123'
-                sh 'docker compose push'
+                bat 'docker login --username=shinichi495 --password=vukhanhlinh@123'
+                bat 'docker compose push'
             }
         }
 
