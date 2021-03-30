@@ -1,0 +1,10 @@
+target/myid-user-service-1.0.0-docker-info.jar
+target/docker/image-id
+target/docker/image-name
+target/docker/repository
+target/docker/tag
+target/maven-archiver/pom.properties
+target/test-classes/META-INF/docker/com.unifiedpost.myid.userservice/myid-user-service/image-id
+target/test-classes/META-INF/docker/com.unifiedpost.myid.userservice/myid-user-service/image-name
+target/test-classes/META-INF/docker/com.unifiedpost.myid.userservice/myid-user-service/repository
+target/test-classes/META-INF/docker/com.unifiedpost.myid.userservice/myid-user-service/tag
