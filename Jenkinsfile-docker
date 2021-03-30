@@ -5,12 +5,6 @@ pipeline {
         maven 'maven3'
     }
     stages {
-        stage('Build') {
-            steps {
-                sh 'mvn clean install'
-            }
-        }
-
         stage('Docker push Image') {
             steps {
                 sh 'docker login --username=shinichi495 --password=vukhanhlinh@123'
